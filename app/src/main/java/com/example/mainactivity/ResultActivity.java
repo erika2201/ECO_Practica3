@@ -38,8 +38,17 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        //Color
         SharedPreferences sp = getSharedPreferences("colors",MODE_PRIVATE);
         String color = sp.getString("color","#FFFFFF");
         bgResult.setBackgroundColor(Color.parseColor(color));
+
+        //Texto con nombre
+        textResult.setText("Hola "+sp.getString("name","estudiante")+", tu nota final es de:");
+
+        //Recibir y mostrar la nota
+        String nota = Float.toString((getIntent().getExtras().getFloat("nota")));
+        String finalGrade = nota.substring(0,3);
+        textResultNota.setText(finalGrade);
     }
 }

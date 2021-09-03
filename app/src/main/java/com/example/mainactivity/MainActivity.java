@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent i = new Intent(this,calcNoteActivity.class);
                         startActivity(i);
                     }else{
-                        Toast.makeText(this, "Ingrese un nombre", Toast.LENGTH_SHORT).show(); //mensaje para cuando deje en vacio
+                        Toast.makeText(this, "Ingresa un nombre", Toast.LENGTH_SHORT).show(); //mensaje para cuando deje en vacio
                     }
                 });
     }
