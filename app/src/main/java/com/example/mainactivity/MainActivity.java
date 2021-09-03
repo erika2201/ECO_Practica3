@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,8 +44,13 @@ public class MainActivity extends AppCompatActivity {
         //De main a calcNote
         continueButton.setOnClickListener(
                 (v) ->{
-                    Intent i = new Intent(this,calcNoteActivity.class);
-                    startActivity(i);
+                    if(!textEditName.getText().toString().replaceAll(" ","").isEmpty()){
+                        sp1.edit().putString("name", textEditName.getText().toString().trim()).apply();
+                        Intent i = new Intent(this,calcNoteActivity.class);
+                        startActivity(i);
+                    }else{
+                        Toast.makeText(this, "Ingrese un nombre", Toast.LENGTH_SHORT).show(); //mensaje para cuando deje en vacio
+                    }
                 });
     }
 
