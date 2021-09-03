@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private Button configButton;
-    private Button continuarButton;
+    private Button continueButton;
     private TextView textMain;
     private EditText textEditName;
     private ConstraintLayout bgMain;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         configButton = findViewById(R.id.configButton);
-        continuarButton = findViewById(R.id.configButton);
+        continueButton = findViewById(R.id.continueButton);
         textMain = findViewById(R.id.textMain);
         textEditName = findViewById(R.id.textEditName);
         bgMain = findViewById(R.id.bgMain);
@@ -39,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Cambiar color
         SharedPreferences sp1 = getSharedPreferences("colors",MODE_PRIVATE);
+
+        //De main a calcNote
+        continueButton.setOnClickListener(
+                (v) ->{
+                    Intent i = new Intent(this,calcNoteActivity.class);
+                    startActivity(i);
+                });
     }
 
 
